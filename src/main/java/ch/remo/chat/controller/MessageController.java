@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ch.remo.chat.controller.model.Message;
-import ch.remo.chat.controller.model.User;
 import ch.remo.chat.controller.service.MessageService;
 import ch.remo.chat.exception.MessageNotValidException;
 import io.swagger.annotations.ApiOperation;
