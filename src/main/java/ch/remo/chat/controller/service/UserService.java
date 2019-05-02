@@ -3,6 +3,8 @@ package ch.remo.chat.controller.service;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -15,7 +17,6 @@ import ch.remo.chat.controller.model.User;
 import ch.remo.chat.exception.UserNotValidException;
 
 @Service
-
 public class UserService {
 	@Autowired
 	UserDao userDao;
