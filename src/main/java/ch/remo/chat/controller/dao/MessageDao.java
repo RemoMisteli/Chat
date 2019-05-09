@@ -23,7 +23,6 @@ public class MessageDao {
 	}
 
 	public void delete(long messageId) {
-		//TODO: use function deleteById
 		messageRepository.deleteById(messageId);
 	}
 }

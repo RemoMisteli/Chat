@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ch.remo.chat.controller.model.Message;
-import ch.remo.chat.controller.model.User;
 import ch.remo.chat.controller.service.MessageService;
 import ch.remo.chat.exception.MessageNotValidException;
 import io.swagger.annotations.ApiOperation;
@@ -28,26 +27,26 @@ public class MessageController {
 	
 	@ApiOperation(value = "", response = Message.class,responseContainer="List", tags="Message API")
 	@GetMapping(path = "")
-	public List<Message> getMessages() {
+	public List<Message> getContent() {
 		return messageService.getAll();
 	}
 	
 	@ApiOperation(value = "chat/messages", response = Message.class, tags="Message API")
 	@PostMapping(path = "")
-	public Message insertMessage(@RequestBody Message message) throws MessageNotValidException {
-		return messageService.insertMessage(message);
+	public Message insertContent(@RequestBody Message message) {
+		return messageService.insertContent(message);
 	}
 	
 	@ApiOperation(value = "chat/messages/{id}", response = Message.class, tags="Message API")
 	@PutMapping(path = "/{id}")
-	public Message updateMessage(@RequestBody Message message,@PathVariable("id") Long messageId) throws MessageNotValidException {
-		return messageService.updateMessage(messageId,message);
+	public Message updateContent(@RequestBody Message message,@PathVariable("id") Long messageId) throws MessageNotValidException {
+		return messageService.updateContent(messageId,message);
 	}
 	
 	@ApiOperation(value = "chat/messages/{id}", tags="Message API")
 	@DeleteMapping(path ="/{id}")
-	public void deleteMessage(@PathVariable("id") Long messageId) throws MessageNotValidException {
-		messageService.deleteMessage(messageId);
+	public void deleteContent(@PathVariable("id") Long messageId) throws MessageNotValidException {
+		messageService.deleteContent(messageId);
 		
 	}
 }

@@ -1,10 +1,15 @@
 package ch.remo.chat.controller.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany; 
 
 
 @Entity(name = "users")
@@ -18,9 +23,36 @@ public class UserEntity {
 	private String user;
 	@Column(name = "password")
 	private String password;
+	@ManyToMany
+    @JoinTable(name = "users_messages", 
+      joinColumns = @JoinColumn( name = "sender", referencedColumnName = "id" ),
+      inverseJoinColumns = @JoinColumn( name = "message", referencedColumnName = "id" )
+    )
+	private List<MessageEntity> sendedMessages;
+	
+	@ManyToMany
+    @JoinTable(name = "users_messages", 
+      joinColumns = @JoinColumn( name = "receiver", referencedColumnName = "id" ),
+      inverseJoinColumns = @JoinColumn( name = "message", referencedColumnName = "id" )
+    )
+	private List<MessageEntity> receivedMessages;
+	
+	public List<MessageEntity> getReceivedMessages() {
+		return receivedMessages;
+	}
 
-	
-	
+	public void setReceivedMessages(List<MessageEntity> receivedMessages) {
+		this.receivedMessages = receivedMessages;
+	}
+
+	public List<MessageEntity> getSendedMessages() {
+		return sendedMessages;
+	}
+
+	public void setSendedMessages(List<MessageEntity> sendedMessages) {
+		this.sendedMessages = sendedMessages;
+	}
+
 	public Long getId() {
 		return id;
 	}
