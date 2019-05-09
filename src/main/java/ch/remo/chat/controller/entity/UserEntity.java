@@ -28,7 +28,7 @@ public class UserEntity {
       joinColumns = @JoinColumn( name = "sender", referencedColumnName = "id" ),
       inverseJoinColumns = @JoinColumn( name = "message", referencedColumnName = "id" )
     )
-	private List<MessageEntity> sendedMessages;
+	private List<MessageEntity> sentMessages;
 	
 	@ManyToMany
     @JoinTable(name = "users_messages", 
@@ -45,12 +45,12 @@ public class UserEntity {
 		this.receivedMessages = receivedMessages;
 	}
 
-	public List<MessageEntity> getSendedMessages() {
-		return sendedMessages;
+	public List<MessageEntity> getSentMessages() {
+		return sentMessages;
 	}
 
-	public void setSendedMessages(List<MessageEntity> sendedMessages) {
-		this.sendedMessages = sendedMessages;
+	public void setSentMessages(List<MessageEntity> sentMessages) {
+		this.sentMessages = sentMessages;
 	}
 
 	public Long getId() {

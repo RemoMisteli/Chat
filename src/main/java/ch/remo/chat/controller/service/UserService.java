@@ -80,7 +80,7 @@ public class UserService {
 		model.setId(entity.getId());
 		model.setUser(entity.getUser());
 		model.setPassword(entity.getPassword());
-		model.setSendedMessages(messageService.toModel(entity.getSendedMessages()));
+		model.setSentMessages(messageService.toModel(entity.getSentMessages()));
 		model.setReceivedMessages(messageService.toModel(entity.getReceivedMessages()));
 		return model;
 	}
