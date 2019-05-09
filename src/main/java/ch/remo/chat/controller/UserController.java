@@ -40,13 +40,13 @@ public class UserController {
 		return userService.insertUser(user);
 	}
 	
-	@ApiOperation(value = "/users", response = User.class, tags="User API")
+	@ApiOperation(value = "/users/{id}", response = User.class, tags="User API")
 	@PutMapping(path = "/{id}")
 	public User updateUser(@RequestBody User user,@PathVariable("id") Long userId) throws UserNotValidException {
 		return userService.updateUser(userId,user);//password?
 	}
 	
-	@ApiOperation(value = "/users", tags="User API")
+	@ApiOperation(value = "/users/{id}", tags="User API")
 	@DeleteMapping(path ="/{id}")
 	public void deleteUser(@PathVariable("id") Long userId) throws UserNotValidException {
 		userService.deleteUser(userId);

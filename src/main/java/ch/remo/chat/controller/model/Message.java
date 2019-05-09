@@ -2,19 +2,22 @@ package ch.remo.chat.controller.model;
 
 public class Message {
 	private Long id;
-	private String message;
-	
+	private String content;
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getMessage() {
-		return message;
+
+	public String getContent() {
+		return content;
 	}
-	public void setMessage(String message) {
-		this.message = message;
+
+	public void setContent(String content) {
+		this.content = content;
 	}
-	
+
 }

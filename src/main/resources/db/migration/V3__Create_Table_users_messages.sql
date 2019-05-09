@@ -1,3 +1,4 @@
+START TRANSACTION;
 CREATE TABLE users_messages(
  sender INT NOT NULL,
  receiver INT NOT NULL,
@@ -12,3 +13,4 @@ CREATE TABLE users_messages(
  
   ALTER TABLE users_messages
  ADD FOREIGN KEY (message) REFERENCES messages(id);
+ COMMIT;
