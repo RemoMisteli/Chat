@@ -20,7 +20,7 @@ public class UserEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(name = "username")
-	private String user;
+	private String username;
 	@Column(name = "password")
 	private String password;
 	@ManyToMany
@@ -28,7 +28,7 @@ public class UserEntity {
       joinColumns = @JoinColumn( name = "sender", referencedColumnName = "id" ),
       inverseJoinColumns = @JoinColumn( name = "message", referencedColumnName = "id" )
     )
-	private List<MessageEntity> sendedMessages;
+	private List<MessageEntity> sentMessages;
 	
 	@ManyToMany
     @JoinTable(name = "users_messages", 
@@ -45,12 +45,12 @@ public class UserEntity {
 		this.receivedMessages = receivedMessages;
 	}
 
-	public List<MessageEntity> getSendedMessages() {
-		return sendedMessages;
+	public List<MessageEntity> getSentMessages() {
+		return sentMessages;
 	}
 
-	public void setSendedMessages(List<MessageEntity> sendedMessages) {
-		this.sendedMessages = sendedMessages;
+	public void setSentMessages(List<MessageEntity> sentMessages) {
+		this.sentMessages = sentMessages;
 	}
 
 	public Long getId() {
@@ -61,12 +61,13 @@ public class UserEntity {
 		this.id = id;
 	}
 
-	public String getUser() {
-		return user;
+	public String getUsername() {
+		return username;
 	}
+	
 
-	public void setUser(String user) {
-		this.user = user;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {

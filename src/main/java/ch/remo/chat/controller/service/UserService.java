@@ -51,36 +51,36 @@ public class UserService {
 		try {
 			userDao.delete(userId);
 		} catch (EmptyResultDataAccessException e) {
-			Logger.getLogger(this.getClass()).error("Error while deleting user",e);
+			Logger.getLogger(this.getClass()).error("Error while deleting user", e);
 		}
 	}
 
 	public void checkIfUserIsValid(User user) throws UserNotValidException {
-		if (user == null || StringUtils.isEmpty(user.getPassword()) || StringUtils.isEmpty(user.getUser())) {
+		if (user == null || StringUtils.isEmpty(user.getPassword()) || StringUtils.isEmpty(user.getUsername())) {
 			throw new UserNotValidException("Username and Password can not be empty!");
 		}
 	}
 
 	public UserEntity toEntity(User model) {
-		if (model == null || model.getId() == null || model.getUser() == null || model.getPassword() == null) {
+		if (model == null) {
 			return null;
 		}
 		UserEntity entity = new UserEntity();
 		entity.setId(model.getId());
-		entity.setUser(model.getUser());
+		entity.setUsername(model.getUsername());
 		entity.setPassword(model.getPassword());
 		return entity;
 	}
 
 	public User toModel(UserEntity entity) {
-		if (entity == null || entity.getId() == null || entity.getUser() == null || entity.getPassword() == null) {
+		if (entity == null ) {
 			return null;
 		}
 		User model = new User();
 		model.setId(entity.getId());
-		model.setUser(entity.getUser());
+		model.setUsername(entity.getUsername());
 		model.setPassword(entity.getPassword());
-		model.setSendedMessages(messageService.toModel(entity.getSendedMessages()));
+		model.setSentMessages(messageService.toModel(entity.getSentMessages()));
 		model.setReceivedMessages(messageService.toModel(entity.getReceivedMessages()));
 		return model;
 	}
