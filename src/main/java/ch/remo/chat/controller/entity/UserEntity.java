@@ -20,7 +20,7 @@ public class UserEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(name = "username")
-	private String user;
+	private String username;
 	@Column(name = "password")
 	private String password;
 	@ManyToMany
@@ -61,12 +61,13 @@ public class UserEntity {
 		this.id = id;
 	}
 
-	public String getUser() {
-		return user;
+	public String getUsername() {
+		return username;
 	}
+	
 
-	public void setUser(String user) {
-		this.user = user;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {

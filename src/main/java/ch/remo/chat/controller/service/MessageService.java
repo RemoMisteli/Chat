@@ -49,7 +49,7 @@ public class MessageService {
 	}
 
 	public MessageEntity toEntity(Message model) {
-		if (model == null || model.getId() == null || model.getContent() == null) {
+		if (model == null ) {
 			return null;
 		}
 
@@ -61,7 +61,7 @@ public class MessageService {
 	}
 
 	public Message toModel(MessageEntity entity) {
-		if (entity == null || entity.getId() == null || entity.getContent() == null) {
+		if (entity == null) {
 			return null;
 		}
 		Message model = new Message();

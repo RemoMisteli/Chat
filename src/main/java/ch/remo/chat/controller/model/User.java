@@ -4,7 +4,7 @@ import java.util.List;
 
 public class User {
 	private Long id;
-	private String user;
+	private String username;
 	private String password;
 
 	private List<Message> sentMessages;
@@ -18,12 +18,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getUser() {
-		return user;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUser(String users) {
-		this.user = users;
+	public void setUsername(String usersname) {
+		this.username = usersname;
 	}
 
 	public String getPassword() {

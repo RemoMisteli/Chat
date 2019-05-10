@@ -43,7 +43,7 @@ public class UserController {
 	@ApiOperation(value = "/users/{id}", response = User.class, tags="User API")
 	@PutMapping(path = "/{id}")
 	public User updateUser(@RequestBody User user,@PathVariable("id") Long userId) throws UserNotValidException {
-		return userService.updateUser(userId,user);//password?
+		return userService.updateUser(userId,user);
 	}
 	
 	@ApiOperation(value = "/users/{id}", tags="User API")
