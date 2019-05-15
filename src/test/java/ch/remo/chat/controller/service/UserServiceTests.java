@@ -31,13 +31,17 @@ public class UserServiceTests {
 	UserEntity EntityWithNoSendedMesage;
 	UserEntity EntityWithNoRecivedMesage;
 	UserEntity idIsNull;
-	UserEntity userIsNullname;
+	UserEntity usernameIsNull;
 	UserEntity passwordIsNull;
+	UserEntity userIsNull;
 
 	User fulleUser;
 	User idIsNullUser;
 	User userIsNullUsername;
 	User passwordIsNullUser;
+	User userIsNullUser;
+	
+	MessageEntity sendedMessages;
 
 	List<UserEntity> listFullUserEntity;
 	List<UserEntity> listNoIdEntity;
@@ -92,6 +96,11 @@ public class UserServiceTests {
 		EntityWithNoRecivedMesage.setUsername("user1");
 		EntityWithNoRecivedMesage.setPassword("password");
 
+		usernameIsNull=new UserEntity();
+		usernameIsNull.setId(1L);
+		usernameIsNull.setUsername(null);
+		usernameIsNull.setPassword("password");
+		
 		messages = new MessageEntity();
 		messages.setId(1L);
 		messages.setContent("test");
@@ -103,7 +112,12 @@ public class UserServiceTests {
 		sendetMessages = new MessageEntity();
 		sendetMessages.setId(3L);
 		sendetMessages.setContent("test");
-
+		
+		userIsNullUsername=new User();
+		userIsNullUsername.setId(1L);
+		userIsNullUsername.setUsername(null);
+		userIsNullUsername.setPassword("password");
+		
 		listFull = new ArrayList<>();
 		listFull.add(messages);
 		listFull.add(messages);
@@ -117,6 +131,9 @@ public class UserServiceTests {
 
 		listWithSendedMessages = new ArrayList<>();
 
+		sendedMessages=new MessageEntity();
+		sendedMessages.setId(1L);
+		sendedMessages.setContent("Test");
 		listWithSendedMessages.add(sendedMessages);
 		listWithSendedMessages.add(sendedMessages);
 
@@ -228,9 +245,9 @@ public class UserServiceTests {
 		Assert.assertTrue("is id Correct", model.getId() == 3L);
 		Assert.assertTrue("is username Correct", model.getUsername().equals("user1"));
 		Assert.assertTrue("is Password Correct", model.getPassword().equals("password"));
-		Assert.assertTrue("Received Messages have the rigt Id", model.getSentMessages().get(0).getId() == 3L);
+		Assert.assertTrue("Received Messages have the rigt Id", model.getSentMessages().get(0).getId() == 1L);
 		Assert.assertTrue("Received Messages have te correct value",
-				model.getSentMessages().get(0).getContent().equals("test"));
+				model.getSentMessages().get(0).getContent().equals("Test"));
 		Assert.assertTrue("no Sended Messages", model.getReceivedMessages().isEmpty());
 	}
 
@@ -245,8 +262,8 @@ public class UserServiceTests {
 
 	@Test
 	public void toModel_usernameIsNull() {
-		User model = userService.toModel(userIsNullname);
-		Assert.assertTrue("is id Correct", model.getId() == 2L);
+		User model = userService.toModel(usernameIsNull);
+		Assert.assertTrue("is id Correct", model.getId() == 1L);
 		Assert.assertTrue("is username null", model.getUsername() == null);
 		Assert.assertTrue("password corect", model.getPassword().equals("password"));
 
@@ -284,7 +301,7 @@ public class UserServiceTests {
 	@Test
 	public void toEntity_userIsNull() {
 		UserEntity entity = userService.toEntity(userIsNullUsername);
-		Assert.assertTrue("is id Correct", entity.getId() ==5L );
+		Assert.assertTrue("is id Correct", entity.getId() ==1L );
 		Assert.assertTrue("is username null", entity.getUsername()==null);
 		Assert.assertTrue("is password Correct", entity.getPassword().equals("password"));
 
