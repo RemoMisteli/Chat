@@ -18,11 +18,12 @@ public class MessageServiceTests {
 	MessageEntity mesageEntityContentIsNull;
 	MessageEntity measageEntityIdIsNull;
 	MessageEntity measageEntityisNull;
-	MessageEntity messageNull;
+
 
 	Message fullMessage;
 	Message idIsNullMessage;
 	Message messageIsNullMessage;
+	
 	List<MessageEntity> listFull;
 
 	List<MessageEntity> listMessageEntityContentIsNull;
@@ -46,10 +47,10 @@ public class MessageServiceTests {
 		measageEntityIdIsNull.setId(null);
 		measageEntityIdIsNull.setContent(HALLO_MSG);
 
-		measageEntityisNull = new MessageEntity();
-		measageEntityisNull.setId(null);
-		measageEntityisNull.setContent(null);
-		messageNull = null;
+		measageEntityisNull = null;
+		
+		
+		
 
 		fullMessage = new Message();
 		fullMessage.setId(3L);
@@ -87,13 +88,15 @@ public class MessageServiceTests {
 	@Test
 	public void toModel_testMessageGetMessageNull() {
 		Message message = messageService.toModel(mesageEntityContentIsNull);
-		Assert.assertTrue("Is getContent Null", message == null);
+		Assert.assertTrue("Is Content Null", message.getContent() == null);
+		Assert.assertTrue("Is id correct", message.getId() == 2L);
 	}
 
 	@Test
 	public void toModel_testIdIsNull() {
 		Message message = messageService.toModel(measageEntityIdIsNull);
-		Assert.assertTrue("Is id Null", message == null);
+		Assert.assertTrue("Is id Null", message.getId() == null);
+		Assert.assertTrue("Is Content correct", message.getContent() == HALLO_MSG);
 	}
 
 	@Test
@@ -103,16 +106,12 @@ public class MessageServiceTests {
 
 	}
 
-	@Test
-	public void toModel_testIsMessageObjectNull() {
-		Message message = messageService.toModel(messageNull);
-		Assert.assertTrue("Is message Null", message == null);
-	}
+	
 
 	@Test
 	public void toEntity_Test() {
 		MessageEntity entity = messageService.toEntity(fullMessage);
-		Assert.assertTrue("is id Correct", entity.getId() == 3);
+		Assert.assertTrue("is id Correct", entity.getId() == 3L);
 		Assert.assertTrue("is message Correct", entity.getContent().equals(HALLO_MSG));
 
 	}
@@ -120,14 +119,16 @@ public class MessageServiceTests {
 	@Test
 	public void toEntity_idIsNull() {
 		MessageEntity entity = messageService.toEntity(idIsNullMessage);
-		Assert.assertTrue("entity is null when id is null ", entity == null);
+		Assert.assertTrue("entity is null when id is null ", entity.getId() == null);
+		Assert.assertTrue("is message Correct", entity.getContent().equals(HALLO_MSG));
 
 	}
 
 	@Test
 	public void toEntity_messageIsNull() {
 		MessageEntity entity = messageService.toEntity(messageIsNullMessage);
-		Assert.assertTrue("entity is null when message is null ", entity == null);
+		Assert.assertTrue("is id Correct", entity.getId() == 4L);
+		Assert.assertTrue("entity is null when message is null ", entity.getContent() == null);
 	}
 
 	@Test
@@ -144,7 +145,8 @@ public class MessageServiceTests {
 	public void toModel_ListWithContentNull() {
 		List<Message> messages = messageService.toModel(listMessageEntityContentIsNull);
 		Message message = messages.get(0);
-		Assert.assertTrue("list is emty", message == null);
+		Assert.assertTrue("is id Correct", message.getId() == 2L);
+		Assert.assertTrue("content is null", message.getContent() == null);
 
 	}
 
@@ -153,7 +155,8 @@ public class MessageServiceTests {
 		List<Message> messages = messageService.toModel(listMeasageEntityIdIsNull);
 		Message message = messages.get(0);
 
-		Assert.assertTrue("list is emty ", message == null);
+		Assert.assertTrue("list is emty ", message.getId() == null);
+		Assert.assertTrue("content is null", message.getContent() == HALLO_MSG);
 
 	}
 
