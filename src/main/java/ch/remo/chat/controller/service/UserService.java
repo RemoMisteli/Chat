@@ -60,7 +60,6 @@ public class UserService {
 			throw new UserNotValidException("Username and Password can not be empty!");
 		}
 	}
-
 	public UserEntity toEntity(User model) {
 		if (model == null) {
 			return null;
@@ -73,8 +72,8 @@ public class UserService {
 	}
 
 	public User toModel(UserEntity entity) {
-		
-		if (entity == null ) {
+
+		if (entity == null) {
 			return null;
 		}
 		User model = new User();
