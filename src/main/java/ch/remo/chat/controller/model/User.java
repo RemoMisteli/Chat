@@ -7,7 +7,7 @@ public class User {
 	private String username;
 	private String password;
 
-	private List<Message> sendedMessages;
+	private List<Message> sentMessages;
 	private List<Message> receivedMessages;
 
 	public Long getId() {
@@ -22,8 +22,9 @@ public class User {
 		return username;
 	}
 
-	public void setUsername(String users) {
-		this.username = users;
+	
+	public void setUsername(String usersname) {
+		this.username = usersname;
 	}
 
 	public String getPassword() {
@@ -35,12 +36,12 @@ public class User {
 		this.password = password;
 	}
 
-	public List<Message> getSendedMessages() {
-		return sendedMessages;
+	public List<Message> getSentMessages() {
+		return sentMessages;
 	}
 
-	public void setSendedMessages(List<Message> sendedMessages) {
-		this.sendedMessages = sendedMessages;
+	public void setSentMessages(List<Message> sentMessages) {
+		this.sentMessages = sentMessages;
 	}
 
 	public List<Message> getReceivedMessages() {

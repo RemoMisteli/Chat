@@ -206,9 +206,9 @@ public class UserServiceTests {
 		Assert.assertTrue("is id Correct", model.getId() == 1L);
 		Assert.assertTrue("is username Correct", model.getUsername().equals("user1"));
 		Assert.assertTrue("is Password Correct", model.getPassword().equals("password"));
-		Assert.assertTrue("Sended Message have the rigt Id", model.getSendedMessages().get(0).getId() == 1L);
+		Assert.assertTrue("Sended Message have the rigt Id", model.getSentMessages().get(0).getId() == 1L);
 		Assert.assertTrue("Sended Mesages have te correct value",
-				model.getSendedMessages().get(0).getContent().equals("test"));
+				model.getSentMessages().get(0).getContent().equals("test"));
 		Assert.assertTrue("Received Messages have the rigt Id", model.getReceivedMessages().get(0).getId() == 1L);
 		Assert.assertTrue("Received Messages have te correct value",
 				model.getReceivedMessages().get(0).getContent().equals("test"));
@@ -220,7 +220,7 @@ public class UserServiceTests {
 		Assert.assertTrue("is id Correct", model.getId() == 2L);
 		Assert.assertTrue("is username Correct", model.getUsername().equals("user1"));
 		Assert.assertTrue("is Password Correct", model.getPassword().equals("password"));
-		Assert.assertTrue("no Sended Messages", model.getSendedMessages().isEmpty());
+		Assert.assertTrue("no Sended Messages", model.getSentMessages().isEmpty());
 		Assert.assertTrue("Received Messages have the rigt Id", model.getReceivedMessages().get(0).getId() == 2L);
 		Assert.assertTrue("Received Messages have te correct value",
 				model.getReceivedMessages().get(0).getContent().equals("test"));
@@ -232,9 +232,9 @@ public class UserServiceTests {
 		Assert.assertTrue("is id Correct", model.getId() == 3L);
 		Assert.assertTrue("is username Correct", model.getUsername().equals("user1"));
 		Assert.assertTrue("is Password Correct", model.getPassword().equals("password"));
-		Assert.assertTrue("Received Messages have the rigt Id", model.getSendedMessages().get(0).getId() == 3L);
+		Assert.assertTrue("Received Messages have the rigt Id", model.getSentMessages().get(0).getId() == 3L);
 		Assert.assertTrue("Received Messages have te correct value",
-				model.getSendedMessages().get(0).getContent().equals("test"));
+				model.getSentMessages().get(0).getContent().equals("test"));
 		Assert.assertTrue("no Sended Messages", model.getReceivedMessages().isEmpty());
 	}
 
@@ -309,8 +309,8 @@ public class UserServiceTests {
 	    Assert.assertTrue("is UserId correct", user.getId() == 1L);
 	    Assert.assertTrue("is Username Correct", user.getUsername().equals("user1"));
 	    Assert.assertTrue("is password Correct", user.getPassword().equals("password"));
-	    Assert.assertTrue("Is sended Message id Correct", user.getSendedMessages().get(0).getId()==1L);
-	    Assert.assertTrue("Is sended Message content Correct", user.getSendedMessages().get(0).getContent().equals("test"));
+	    Assert.assertTrue("Is sended Message id Correct", user.getSentMessages().get(0).getId()==1L);
+	    Assert.assertTrue("Is sended Message content Correct", user.getSentMessages().get(0).getContent().equals("test"));
 	    Assert.assertTrue("Is recived Message id Correct", user.getReceivedMessages().get(0).getId()==1L);
 	    Assert.assertTrue("Is recived Message content Correct", user.getReceivedMessages().get(0).getContent().equals("test"));
 	
@@ -322,8 +322,8 @@ public class UserServiceTests {
 	    Assert.assertTrue("is no user", user.getId()== null);
 	    Assert.assertTrue("is Username Correct", user.getUsername().equals("user1"));
 	    Assert.assertTrue("is password Correct", user.getPassword().equals("password"));
-	    Assert.assertTrue("Is sended Message id Correct", user.getSendedMessages().get(0).getId()==1L);
-	    Assert.assertTrue("Is sended Message content Correct", user.getSendedMessages().get(0).getContent().equals("test"));
+	    Assert.assertTrue("Is sended Message id Correct", user.getSentMessages().get(0).getId()==1L);
+	    Assert.assertTrue("Is sended Message content Correct", user.getSentMessages().get(0).getContent().equals("test"));
 	    Assert.assertTrue("Is recived Message id Correct", user.getReceivedMessages().get(0).getId()==1L);
 	    Assert.assertTrue("Is recived Message content Correct", user.getReceivedMessages().get(0).getContent().equals("test"));
 	    
@@ -337,8 +337,8 @@ public class UserServiceTests {
 	    Assert.assertTrue("is id Correct", user.getId()==2L);
 	    Assert.assertTrue("is Username null", user.getUsername()== null);
 	    Assert.assertTrue("is password Correct", user.getPassword().equals("password"));
-	    Assert.assertTrue("Is sended Message id Correct", user.getSendedMessages().get(0).getId()==1L);
-	    Assert.assertTrue("Is sended Message content Correct", user.getSendedMessages().get(0).getContent().equals("test"));
+	    Assert.assertTrue("Is sended Message id Correct", user.getSentMessages().get(0).getId()==1L);
+	    Assert.assertTrue("Is sended Message content Correct", user.getSentMessages().get(0).getContent().equals("test"));
 	    Assert.assertTrue("Is recived Message id Correct", user.getReceivedMessages().get(0).getId()==1L);
 	    Assert.assertTrue("Is recived Message content Correct", user.getReceivedMessages().get(0).getContent().equals("test"));
 	}
@@ -349,8 +349,8 @@ public class UserServiceTests {
 	    Assert.assertTrue("is id Correct", user.getId()==3L);
 	    Assert.assertTrue("is Username null", user.getUsername().equals("user1"));
 	    Assert.assertTrue("is password Correct", user.getPassword()==null);
-	    Assert.assertTrue("Is sended Message id Correct", user.getSendedMessages().get(0).getId()==1L);
-	    Assert.assertTrue("Is sended Message content Correct", user.getSendedMessages().get(0).getContent().equals("test"));
+	    Assert.assertTrue("Is sended Message id Correct", user.getSentMessages().get(0).getId()==1L);
+	    Assert.assertTrue("Is sended Message content Correct", user.getSentMessages().get(0).getContent().equals("test"));
 	    Assert.assertTrue("Is recived Message id Correct", user.getReceivedMessages().get(0).getId()==1L);
 	    Assert.assertTrue("Is recived Message content Correct", user.getReceivedMessages().get(0).getContent().equals("test"));
 	    
@@ -361,7 +361,7 @@ public class UserServiceTests {
 	    Assert.assertTrue("is UserId correct", user.getId() == 1L);
 	    Assert.assertTrue("is Username Correct", user.getUsername().equals("user1"));
 	    Assert.assertTrue("is password Correct", user.getPassword().equals("password"));
-	    Assert.assertTrue("Is sended Message null", user.getSendedMessages().isEmpty());
+	    Assert.assertTrue("Is sended Message null", user.getSentMessages().isEmpty());
 	    Assert.assertTrue("Is recived Message id Correct", user.getReceivedMessages().get(0).getId()==1L);
 	    Assert.assertTrue("Is recived Message content Correct", user.getReceivedMessages().get(0).getContent().equals("test"));
 	
@@ -373,8 +373,8 @@ public class UserServiceTests {
 	    Assert.assertTrue("is UserId correct", user.getId() == 1L);
 	    Assert.assertTrue("is Username Correct", user.getUsername().equals("user1"));
 	    Assert.assertTrue("is password Correct", user.getPassword().equals("password"));
-	    Assert.assertTrue("Is sended Message id Correct", user.getSendedMessages().get(0).getId()==1L);
-	    Assert.assertTrue("Is sended Message content Correct", user.getSendedMessages().get(0).getContent().equals("test"));
+	    Assert.assertTrue("Is sended Message id Correct", user.getSentMessages().get(0).getId()==1L);
+	    Assert.assertTrue("Is sended Message content Correct", user.getSentMessages().get(0).getContent().equals("test"));
 	    Assert.assertTrue("Is recived Message null", user.getReceivedMessages().isEmpty());
 	}
 }

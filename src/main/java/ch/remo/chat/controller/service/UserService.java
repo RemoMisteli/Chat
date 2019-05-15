@@ -51,7 +51,7 @@ public class UserService {
 		try {
 			userDao.delete(userId);
 		} catch (EmptyResultDataAccessException e) {
-			Logger.getLogger(this.getClass()).error("Error while deleting user",e);
+			Logger.getLogger(this.getClass()).error("Error while deleting user", e);
 		}
 	}
 
@@ -73,14 +73,16 @@ public class UserService {
 	}
 
 	public User toModel(UserEntity entity) {
-		if (entity == null) {
+		
+		if (entity == null ) {
 			return null;
 		}
 		User model = new User();
 		model.setId(entity.getId());
 		model.setUsername(entity.getUsername());
 		model.setPassword(entity.getPassword());
-		model.setSendedMessages(messageService.toModel(entity.getSentMessages()));
+		model.setSentMessages(messageService.toModel(entity.getSentMessages()));
+		model.setSentMessages(messageService.toModel(entity.getSentMessages()));
 		model.setReceivedMessages(messageService.toModel(entity.getReceivedMessages()));
 		return model;
 	}

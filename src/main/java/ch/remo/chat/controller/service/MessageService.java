@@ -61,7 +61,10 @@ public class MessageService {
 	}
 
 	public Message toModel(MessageEntity entity) {
-		if (entity == null ) {
+
+
+		if (entity == null) {
+
 			return null;
 		}
 		Message model = new Message();
