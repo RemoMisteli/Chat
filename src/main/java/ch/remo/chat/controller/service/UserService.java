@@ -73,14 +73,13 @@ public class UserService {
 
 	public User toModel(UserEntity entity) {
 
-		if (entity == null) {
+		if (entity == null ) {
 			return null;
 		}
 		User model = new User();
 		model.setId(entity.getId());
 		model.setUsername(entity.getUsername());
 		model.setPassword(entity.getPassword());
-		model.setSentMessages(messageService.toModel(entity.getSentMessages()));
 		model.setSentMessages(messageService.toModel(entity.getSentMessages()));
 		model.setReceivedMessages(messageService.toModel(entity.getReceivedMessages()));
 		return model;

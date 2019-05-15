@@ -50,8 +50,6 @@ public class UserEntity {
 	}
 
 
-
-
 	public void setSentMessages(List<MessageEntity> sentMessages) {
 		this.sentMessages = sentMessages;
 
@@ -68,8 +66,6 @@ public class UserEntity {
 	public String getUsername() {
 		return username;
 	}
-	
-
 	
 	public void setUsername(String username) {
 		this.username = username;

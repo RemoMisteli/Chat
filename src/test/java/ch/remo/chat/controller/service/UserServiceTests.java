@@ -38,7 +38,7 @@ public class UserServiceTests {
 	User idIsNullUser;
 	User userIsNullUsername;
 	User passwordIsNullUser;
-	
+
 	List<UserEntity> listFullUserEntity;
 	List<UserEntity> listNoIdEntity;
 	List<UserEntity> listNoContentEntity;
@@ -46,40 +46,37 @@ public class UserServiceTests {
 	List<UserEntity> listNoRecivedMessageEntity;
 	List<UserEntity> listNoPasswordEntity;
 	List<UserEntity> listNoUserEntity;
-	
+
 	List<MessageEntity> listFull;
 	List<MessageEntity> listWithRecivedMessages;
 	List<MessageEntity> listWithSendedMessages;
 
-	MessageEntity sendedMessages;
-	MessageEntity recivedMessages;
+	MessageEntity sendetMessages;
+	MessageEntity receivedMessages;
 	MessageEntity messages;
 
 	@Autowired
+
 	UserService userService;
 
 	@Before
 	public void init() {
 
-		
-		
-		
 		fullEntity = new UserEntity();
 		fullEntity.setId(1L);
 		fullEntity.setUsername("user1");
 		fullEntity.setPassword("password");
-		
+
 		fullEntityNoSendedMessage = new UserEntity();
 		fullEntityNoSendedMessage.setId(1L);
 		fullEntityNoSendedMessage.setUsername("user1");
 		fullEntityNoSendedMessage.setPassword("password");
-		
-		
+
 		fullEntityNoRecivedMessage = new UserEntity();
 		fullEntityNoRecivedMessage.setId(1L);
 		fullEntityNoRecivedMessage.setUsername("user1");
 		fullEntityNoRecivedMessage.setPassword("password");
-		
+
 		idIsNull = new UserEntity();
 		idIsNull.setId(null);
 		idIsNull.setUsername("user1");
@@ -99,13 +96,13 @@ public class UserServiceTests {
 		messages.setId(1L);
 		messages.setContent("test");
 
-		recivedMessages = new MessageEntity();
-		recivedMessages.setId(2L);
-		recivedMessages.setContent("test");
+		receivedMessages = new MessageEntity();
+		receivedMessages.setId(2L);
+		receivedMessages.setContent("test");
 
-		sendedMessages = new MessageEntity();
-		sendedMessages.setId(3L);
-		sendedMessages.setContent("test");
+		sendetMessages = new MessageEntity();
+		sendetMessages.setId(3L);
+		sendetMessages.setContent("test");
 
 		listFull = new ArrayList<>();
 		listFull.add(messages);
@@ -114,13 +111,15 @@ public class UserServiceTests {
 		fullEntity.setReceivedMessages(listFull);
 
 		listWithRecivedMessages = new ArrayList<>();
-		listWithRecivedMessages.add(recivedMessages);
-		listWithRecivedMessages.add(recivedMessages);
+		listWithRecivedMessages.add(receivedMessages);
+		listWithRecivedMessages.add(receivedMessages);
 		EntityWithNoSendedMesage.setReceivedMessages(listWithRecivedMessages);
 
 		listWithSendedMessages = new ArrayList<>();
+
 		listWithSendedMessages.add(sendedMessages);
 		listWithSendedMessages.add(sendedMessages);
+
 		EntityWithNoRecivedMesage.setSentMessages(listWithSendedMessages);
 
 		fulleUser = new User();
@@ -128,13 +127,12 @@ public class UserServiceTests {
 		fulleUser.setUsername("user1");
 		fulleUser.setPassword("password");
 
-		
 
-		userIsNullname = new UserEntity();
-		userIsNullname.setId(2L);
-		userIsNullname.setUsername(null);
-		userIsNullname.setPassword("password");
-
+		userIsNull = new UserEntity();
+		userIsNull.setId(2L);
+		userIsNull.setUsername(null);
+		userIsNull.setPassword("password");
+    
 		passwordIsNull = new UserEntity();
 		passwordIsNull.setId(3L);
 		passwordIsNull.setUsername("user1");
@@ -145,59 +143,57 @@ public class UserServiceTests {
 		idIsNullUser.setUsername("user1");
 		idIsNullUser.setPassword("password");
 
-		userIsNullUsername = new User();
-		userIsNullUsername.setId(5L);
-		userIsNullUsername.setUsername(null);
-		userIsNullUsername.setPassword("password");
+
+		userIsNullUser = new User();
+		userIsNullUser.setId(5L);
+		userIsNullUser.setUsername(null);
+		userIsNullUser.setPassword("password");
+
 
 		passwordIsNullUser = new User();
 		passwordIsNullUser.setId(6L);
 		passwordIsNullUser.setUsername("user1");
 		passwordIsNullUser.setPassword(null);
-		
+
 		idIsNull.setSentMessages(listFull);
 		idIsNull.setReceivedMessages(listFull);
-		
-		userIsNullname.setSentMessages(listFull);
-		userIsNullname.setReceivedMessages(listFull);
-		
+
+		userIsNull.setSentMessages(listFull);
+		userIsNull.setReceivedMessages(listFull);
+
 		passwordIsNull.setSentMessages(listFull);
 		passwordIsNull.setReceivedMessages(listFull);
-		
+
 		fullEntityNoSendedMessage.setReceivedMessages(listFull);
-		
 		fullEntityNoRecivedMessage.setSentMessages(listFull);
-		
-		listFullUserEntity= new ArrayList<>();
+
+		listFullUserEntity = new ArrayList<>();
+
 		listFullUserEntity.add(fullEntity);
 		listFullUserEntity.add(fullEntity);
-		
-		listNoIdEntity= new ArrayList<>();
+
+		listNoIdEntity = new ArrayList<>();
 		listNoIdEntity.add(idIsNull);
 		listNoIdEntity.add(idIsNull);
-		
-		
-		
-		listNoUserEntity= new ArrayList<>();
-		listNoUserEntity.add(userIsNullname);
-		listNoUserEntity.add(userIsNullname);
-		
-		
-		
-		listNoPasswordEntity= new ArrayList<>();
+
+
+		listNoUserEntity = new ArrayList<>();
+		listNoUserEntity.add(userIsNull);
+		listNoUserEntity.add(userIsNull);
+
+		listNoPasswordEntity = new ArrayList<>();
+
 		listNoPasswordEntity.add(passwordIsNull);
 		listNoPasswordEntity.add(passwordIsNull);
-		
-		listNoSendedMessageEntity= new ArrayList<>();
+
+		listNoSendedMessageEntity = new ArrayList<>();
 		listNoSendedMessageEntity.add(fullEntityNoSendedMessage);
 		listNoSendedMessageEntity.add(fullEntityNoSendedMessage);
-		
-		listNoRecivedMessageEntity= new ArrayList<>();
+
+		listNoRecivedMessageEntity = new ArrayList<>();
 		listNoRecivedMessageEntity.add(fullEntityNoRecivedMessage);
 		listNoRecivedMessageEntity.add(fullEntityNoSendedMessage);
-		
-		
-		
+
 	}
 
 	@Test
@@ -270,7 +266,9 @@ public class UserServiceTests {
 		UserEntity entity = userService.toEntity(fulleUser);
 		Assert.assertTrue("is id Correct", entity.getId() == 4L);
 		Assert.assertTrue("is username Correct", entity.getUsername().equals("user1"));
+
 		Assert.assertTrue("is password Correct", entity.getPassword().equals("password"));
+
 
 	}
 
@@ -305,6 +303,7 @@ public class UserServiceTests {
 	@Test
 	public void toModel_ListWithFullEntity() {
 		List<User> models = userService.toModel(listFullUserEntity);
+
 	    User user = models.get(0);
 	    Assert.assertTrue("is UserId correct", user.getId() == 1L);
 	    Assert.assertTrue("is Username Correct", user.getUsername().equals("user1"));
@@ -328,8 +327,11 @@ public class UserServiceTests {
 	    Assert.assertTrue("Is recived Message content Correct", user.getReceivedMessages().get(0).getContent().equals("test"));
 	    
 	
+
 	}
+
 	@Test
+
 	
 	public void toModel_ListWithNoUsername() {
 		List<User> models = userService.toModel(listNoUserEntity);
@@ -376,5 +378,6 @@ public class UserServiceTests {
 	    Assert.assertTrue("Is sended Message id Correct", user.getSentMessages().get(0).getId()==1L);
 	    Assert.assertTrue("Is sended Message content Correct", user.getSentMessages().get(0).getContent().equals("test"));
 	    Assert.assertTrue("Is recived Message null", user.getReceivedMessages().isEmpty());
+
 	}
 }

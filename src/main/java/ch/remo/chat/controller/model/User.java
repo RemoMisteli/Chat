@@ -22,7 +22,6 @@ public class User {
 		return username;
 	}
 
-	
 	public void setUsername(String usersname) {
 		this.username = usersname;
 	}
